@@ -21,9 +21,6 @@
 <head> 
 	<link rel="stylesheet" type="text/css" href="css/index.css" />
 		
-      <link rel="stylesheet" href="css/bootstrap.min.css" media="screen">
-      <script src="js/bootstrap.min.js"></script>
-	
 <!-- end ng code ko -->  
 	  
 	
@@ -31,15 +28,10 @@
 <link rel="stylesheet" href="css/themes/my-custom-theme.min.css" />
 	<link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
 	<link rel="stylesheet" href="css/jquery.mobile.structure-1.4.2.min.css" />
-	<link rel="stylesheet" href="css/jquery.mobile.datepicker.css" />
 	<link rel="stylesheet" href="css/animate.css" />
 	
 	<script src="js/jquery-1.10.2.min.js"></script>
-	<script src="js/jquery.mobile-1.4.5.min.js"></script>
-	<script src="js/jquery.ui.datepicker.js"></script>
-	<script src="js/jquery.mobile.datepicker.js"></script>
-	<script type="text/javascript" src="js/twitterfeed.js"></script>
-
+	
 	  
 <script src="http://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
 	
@@ -63,11 +55,14 @@
 		display: block;
 		left: 85%;
 	}
-	 #panicbutton2{
+
+ #panicbutton2{
 		position: relative;
 		display: block;
 		left: 85%;
 	}
+	
+
       </style>
     </head>
     <body>
@@ -91,33 +86,51 @@
 	</div><!-- /panel -->
 
 	<div data-role="header">
-		<a href="#myPanel" class="ui-btn ui-icon-bars ui-btn-icon-notext "></a>
+        <a href="#myPanel" class="ui-btn ui-icon-bars ui-btn-icon-notext " style="padding:0;border:0;background:transparent;"></a>
 		<h1>SOS MANILA</h1>
 	</div><!-- /header -->
 
 	<div role="main" class="ui-content">
 		<div id="panicbutton">
-		<a href="sms:+639461461134?body= I am in emergency situation, I need help."><img id="panicpic" src="images/panicbutton.png" style="width: 15%;" /></a>
+		
+		<a href="sms:+639461461134?body=I am in emergency situation, I need help." ><img id="panicpic" src="images/panicbutton.png" style="width: 15%;" /></a>
 		</div>
 		<div id="panicbutton2" style="display:none">
-		<a ><img id="panicpic2" src="images/panicbutton_disabled.png" style="width: 15%;" /></a>
+            <a href="#popupStop" data-rel="popup" data-position-to="window" data-transition="pop"><img id="panicpic2" src="images/panicbutton_disabled.png" style="width: 15%;" /></a>
 		</div>
+		
 		<!--<p><a href="#two" class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all">Personal Alarm</a></p>-->
 			
 	
-	
+	<a    href="#both" data-rel="popup" data-transition="fade" data-position-to="window"><img src="images/logo-small.png"  id="myLogo" style="margin-top: 7%; width:70%;margin-left:auto;margin-right:auto;display:block"></a>
+		
+		
+		<div id="both" data-role="popup" data-theme="a" data-overlay-theme="b">
   		<center>	
 		<a   id="camera" onClick="next1();" ><img src="images/logo-camera.png"  id="myLogo" style="margin-top: 7%; width:45%;margin-left:auto;margin-right:auto;"></a>
 		<a   id="camera2" onClick="next1();" ><img src="images/logo-album.png"  id="myLogo" style="margin-top: 7%; width:45%;margin-left:auto;margin-right:auto;"></a>
-		
-		
-		
 		</center>
+
+		</div>
 	
 	
 		<a id="btnCall" href="tel:09461461134" class="ui-btn ui-shadow ui-corner-all ui-icon-phone ui-btn-icon-left ui-btn-d">Emergency</a>
 		
 		<center>	<label id="lugar1"></label></center>
+
+        <div data-role="popup" id="popupStop" data-theme="a" class="ui-corner-all">
+          
+                <div style="padding:10px 20px;">
+                    <h3>Please Input Password</h3>
+       
+                    <label for="pw" class="ui-hidden-accessible">Password:</label>
+                    <input type="password" name="pass" id="verifypw" value="" placeholder="password" data-theme="a">
+                    <button id="verifybtn" class="ui-btn ui-shadow ui-corner-all ui-icon- ui-btn-icon-left ui-btn-d">OK</button>
+                </div>
+                </div>
+
+
+
 		</div><!-- /content -->
 
 	<!-- <div data-role="footer" data-theme="a" data-position="fixed">
@@ -133,8 +146,8 @@
 
 <div data-role="page" id="two" data-theme="a">
 <div data-role="header">
-		<a href="#one"  class="ui-btn ui-icon-back ui-btn-icon-notext"></a><h1>Report Incident </h1>
-		 <a href="" onClick="lipat();" class="ui-btn ui-icon-home ui-btn-icon-notext"></a>
+    <a href="#one" class="ui-btn ui-icon-back ui-btn-icon-notext" style="padding:0;border:0;background:transparent;"></a><h1>Report Incident </h1>
+    <a href="" onclick="lipat();" class="ui-btn ui-icon-home ui-btn-icon-notext" style="padding:0;border:0;background:transparent;"></a>
 		
 	</div><!-- /header -->
 	
@@ -147,29 +160,20 @@
         
 		<br><br>	
   
-	<img src="" id="picc"  class="pic" style="margin-left: auto; width:100%;  margin-right: auto;"   />	
+	<img src="" id="picc"  class="pic" style="margin-left: auto; width:100%; height:80%; margin-right: auto;"   />	
 	 
 <br>
 	<!--<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">-->
 	<legend>Choose an Incident:</legend>
 	
 	<div class="ui-grid-a">
-    <div class="ui-block-a"><div >
+	
+	
+    <div class="ui-block-a">
 		<input onClick="radio6a();" type="radio" name="txtIncident" id="radio-choice-h-6a" value="disaster">
 			<label for="radio-choice-h-6a">Disaster</label>
-		<input onClick="radio6b();" type="radio" name="txtIncident" id="radio-choice-h-6b" value="accident">
-			<label for="radio-choice-h-6b">Accident</label>
-		<input onClick="radio6c();" type="radio" name="txtIncident" id="radio-choice-h-6c" value="crime">
-			<label for="radio-choice-h-6c">Crime</label>
-		<input onClick="radio6d();" type="radio" name="txtIncident" id="radio-choice-h-6d" value="medical">
-			<label for="radio-choice-h-6d">Medical</label>
-		<input onClick="radio6e();" type="radio" name="txtIncident" id="radio-choice-h-6e" value="other">
-			<label for="radio-choice-h-6e">Other</label>
-	<!--</fieldset>-->
-	
-	
-	</div></div>
-    <div class="ui-block-b"><div >
+			</div>
+			<div class="ui-block-b">
 	
 	
 	<div id="divSelectDisaster" onClick="sample();" style="display:none;" >
@@ -183,6 +187,31 @@
 		<option   value="Mitigate">Mitigate</option>
 	</select>
 	</div>
+		</div>	
+			
+	<div class="ui-block-a">
+		<input onClick="radio6b();" type="radio" name="txtIncident" id="radio-choice-h-6b" value="accident">
+			<label for="radio-choice-h-6b">Accident</label>
+			</div>
+			
+			<div class="ui-block-b">
+	<div id="divSelectAccident" onClick="sample3();" style="display:none;" >
+	<select name="txtTypeIncident" id="txtTypeIncidentAccident" data-native-menu="false">
+	    <option> Select Accident Type</option>
+	    <option value="Car Accident">Car Accident</option>
+	    <option value="Motorcycle Accident">Motorcycle Accident</option>
+	    <option value="Others">Others</option>
+	</select>
+	</div>
+</div>
+			
+
+	<div class="ui-block-a">
+		<input onClick="radio6c();" type="radio" name="txtIncident" id="radio-choice-h-6c" value="crime">
+			<label for="radio-choice-h-6c">Crime</label>
+	</div>
+	
+	 <div class="ui-block-b">
 	
 	<div id="divSelectCrime" onClick="sample2();" style="display:none;" >
 	<select name="txtTypeIncident" id="txtTypeIncidentCrime" data-native-menu="false">
@@ -200,16 +229,16 @@
 		<option value="Theft">Theft</option>
 	</select>
 	</div>
-
-	<div id="divSelectAccident" onClick="sample3();" style="display:none;" >
-	<select name="txtTypeIncident" id="txtTypeIncidentAccident" data-native-menu="false">
-	    <option> Select Accident Type</option>
-	    <option value="Car Accident">Car Accident</option>
-	    <option value="Motorcycle Accident">Motorcycle Accident</option>
-	    <option value="Others">Others</option>
-	</select>
+</div>
+	
+	
+	<div class="ui-block-a">
+		<input onClick="radio6d();" type="radio" name="txtIncident" id="radio-choice-h-6d" value="medical">
+			<label for="radio-choice-h-6d">Medical</label>
 	</div>
-
+	
+	
+	<div class="ui-block-b">
 	<div id="divSelectMedicalAssistance" onClick="sample4();" style="display:none;">
 	<select name="txtTypeIncident" id="txtTypeIncidentMedicalAssistance" data-native-menu="false">
 	    <option>Select Med Assist Type</option>
@@ -222,11 +251,27 @@
 	<option value="Others">Others</option>
 	</select>
 	</div>
+	</div>
 	
 	
-	<input type="text" onchange="sample5();" name="txtother" id="txtother" style="display:none;"  placeholder="Other" />
-   
-	</div></div>
+	<div class="ui-block-a">
+		<input onClick="radio6e();" type="radio" name="txtIncident" id="radio-choice-h-6e" value="other">
+			<label for="radio-choice-h-6e">Other</label>
+	<!--</fieldset>-->
+	</div>
+	
+	
+	
+    
+	
+	
+
+
+        <div class="ui-block-b" id ="otherhider" style="display:none;">
+            <input type="text" onchange="sample5();" name="txtother" id="txtother" placeholder="Other" />
+        </div>
+	</div>
+	
 </div><!-- /grid-a -->
 	
  <label for="txtFactsIncident">Facts of incident:</label>
@@ -249,7 +294,7 @@
 		   
 		   </div>
 
-</div><!-- /page two -->
+<!-- /page two -->
 
 
 <div data-role="page" id="four">
@@ -257,9 +302,9 @@
 
 
 	<div data-role="header">
-		<a href="#two"   class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
+        <a href="#two" class="ui-btn ui-icon-back ui-btn-icon-notext" style="padding:0;border:0;background:transparent;"></a>
 		<h1>Summary</h1>
-		 <a href="" onClick="lipat();" class="ui-btn ui-icon-home ui-btn-icon-notext"></a>
+        <a href="" onclick="lipat();" class="ui-btn ui-icon-home ui-btn-icon-notext" style="padding:0;border:0;background:transparent;"></a>
 	</div><!-- /header -->
 
 	<div role="main" class="ui-content">
@@ -267,7 +312,7 @@
 		<br>           
 <table border="0"  style="  margin-left: auto;  margin-right: auto;">
 <tr>
-<td>	 <img src="" class="pic" id="picc1" border="1"  style="margin-left: auto; width:100%; height:50%;  margin-right: auto;"  />	
+<td>	 <img src="" class="pic" id="picc1" border="1"  style="margin-left: auto; width:100%; height:40%;  margin-right: auto;"  />	
 </td>
 
 <td ><div id="mapCanvas"     ></div>
@@ -471,7 +516,6 @@ Report Sending Please Wait... </div>
 
 <!-- code ko -->
         <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="childbrowser.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
 		
       <script src="js/jquery-1.10.2.min.js"></script>
@@ -608,7 +652,7 @@ var d = new Date();
 document.getElementById('txtDateTime').innerHTML = "Date: " + d1.toDateString() +" "+ d;
 
 document.getElementById("txtDisplayUser").innerHTML ="Username: " + window.localStorage.getItem('dataemail');
-
+name55 = window.localStorage.getItem('dataemail');
 }
 
 
@@ -629,36 +673,40 @@ function radio6a(){
 		   $( "#divSelectCrime" ).hide("fast");
 		  $( "#divSelectAccident" ).hide("fast");
 		  $( "#divSelectMedicalAssistance" ).hide("fast");
-		  $( "#txtother" ).hide("fast");
+		$("#otherhider").hide("fast");
+		$("#txtTypeIncidentDisaster2").selectmenu( "open" );
 }
 function radio6b(){
 		    $( "#divSelectDisaster" ).hide("fast");
 		   $( "#divSelectCrime" ).hide("fast");
 		  $( "#divSelectAccident" ).show("fast");
 		  $( "#divSelectMedicalAssistance" ).hide("fast");
-		  $( "#txtother" ).hide("fast");
+		  $("#otherhider").hide("fast");
+		  	$("#txtTypeIncidentAccident").selectmenu( "open" );
 }
 function radio6c(){
 		  $( "#divSelectDisaster" ).hide("fast");
 		   $( "#divSelectCrime" ).show("fast");
 		  $( "#divSelectAccident" ).hide("fast");
 		  $( "#divSelectMedicalAssistance" ).hide("fast");
-		  $( "#txtother" ).hide("fast");
+		  $("#otherhider").hide("fast");
+          	$("#txtTypeIncidentCrime").selectmenu( "open" );
 }
 function radio6d(){
 		  $( "#divSelectDisaster" ).hide("fast");
 		   $( "#divSelectCrime" ).hide("fast");
 		  $( "#divSelectAccident" ).hide("fast");
 		  $( "#divSelectMedicalAssistance" ).show("fast");
-		  $( "#txtother" ).hide("fast");
-}
+		  $("#otherhider").hide("fast");
+		  $("#txtTypeIncidentMedicalAssistance").selectmenu( "open" );
+		  }
 function radio6e(){
 		  $( "#divSelectDisaster" ).hide("fast");
 		   $( "#divSelectCrime" ).hide("fast");
 		  $( "#divSelectAccident" ).hide("fast");
 		  $( "#divSelectMedicalAssistance" ).hide("fast");
-		  
-		  $( "#txtother" ).show("fast");
+		  $( "#otherhider" ).show("fast");
+
 }
 
 
@@ -770,7 +818,7 @@ var pic = pic1;
 		   
 			}
 			
-			
+
 function reports1(){
 myname = window.localStorage.getItem('dataemail');
 				$.ajax({
@@ -785,15 +833,8 @@ myname = window.localStorage.getItem('dataemail');
 		   
 			}
 			
-			
 
-
-
-
-			
-			
-			
-$(document).ready(function(){
+			$(document).ready(function(){
   $("#panicpic").click(function(){
   $("#panicbutton").hide();
   $("#panicbutton2").show();
@@ -813,32 +854,49 @@ myname = window.localStorage.getItem('dataemail');
 	}
 	});	
 	
-}, 5000);
+}, 30000);
 
 
   });
   
-  
-   $("#panicpic2").click(function(){
-  $("#panicbutton2").hide();
-  $("#panicbutton").show();
-  
-clearInterval(timerId);
 
+
+  $("#panicpic2").click(function(){
+  $("#panicbutton").hide();
+  $("#panicbutton2").show();
+  $('#popupStop').show();
+  });
+
+  
+  $("#verifybtn").click(function () {
+      var userpw = window.localStorage.getItem('datapassword');
+      var inputpw = document.getElementById("verifypw").value;
+ 
+    if (userpw == inputpw) {
+
+
+          $("#panicbutton2").hide();
+          $("#panicbutton").show();
+
+          clearInterval(timerId);
+	$('#popupStop').hide();
+	document.getElementById("verifypw").value="";
+      }
+      else {
+		$('#popupStop').hide();
+		document.getElementById("verifypw").value="";
+		
+          alert("Wrong Password!");
+      }
 
   });
 });
 
 
 
-
-
-
-
-
 </script>
 <!-- end code ko -->
-
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
 
 </body>
 </html>

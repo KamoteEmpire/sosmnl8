@@ -112,16 +112,15 @@ img#imgpasswordicon{
 			return;
 			}
 			$.mobile.loading("show");
-		
+			
 				$.getJSON("http://iligtas.ph/sosmnl/verifyfirst.php?callback=?", lform.serialize(),function(data)
 				{
 					if (data.verified == "v1")
 					{
 					localStorage.setItem("datausername", data.username);
 					localStorage.setItem("dataemail", data.email);
-						
 					localStorage.setItem("datapassword", data.password);
-					
+		
 					$.mobile.changePage( "index.html", { changeHash: true });
 					}
 					else
